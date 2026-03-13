@@ -105,40 +105,6 @@ Hugging Face Spaces provides **free hosting** with **16GB RAM** — ideal for la
    git push -u origin main
    ```
 
-4. **Deploy on Streamlit Cloud:**
-   - Go to [share.streamlit.io](https://share.streamlit.io)
-   - Connect your GitHub account
-   - Select your repository and `app.py`
-   - Deploy!
-
-> ⚠️ **Note:** Streamlit Cloud free tier has limited RAM (~1GB). The ~2GB model may cause memory issues. Consider Option 1 (Hugging Face Spaces) for better reliability.
-
----
-
-### Option 3: Deploy on Streamlit Cloud (with Git LFS)
-
-If you prefer keeping everything in one repo:
-
-```bash
-# Install Git LFS
-git lfs install
-
-# Track the large checkpoint file
-git lfs track "mae_checkpoint.pth"
-
-# Add and commit
-git add .gitattributes
-git add mae_checkpoint.pth
-git add .
-git commit -m "Add MAE app with LFS checkpoint"
-git push origin main
-```
-
-> ⚠️ GitHub LFS free tier is limited to **1GB storage** and **1GB bandwidth/month**.  
-> This may not be sufficient for a ~2GB file. Use Option 1 or 2 instead.
-
----
-
 ## 📁 Project Structure
 
 ```
@@ -171,11 +137,4 @@ GEN_AI_A02/
 | Dataset | TinyImageNet (200 classes, 100K images) |
 | Training | 30 epochs, Dual GPU T4, Mixed Precision |
 
-## 📝 Quick Deployment Checklist
 
-- [ ] Download `mae_checkpoint.pth` from Kaggle
-- [ ] Upload checkpoint to Google Drive or Hugging Face Hub
-- [ ] Set `CHECKPOINT_GDRIVE_ID` or `CHECKPOINT_DIRECT_URL` in `app.py`
-- [ ] Push code to GitHub
-- [ ] Deploy on Hugging Face Spaces or Streamlit Cloud
-- [ ] Get your public URL! 🎉
